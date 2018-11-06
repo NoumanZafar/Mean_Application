@@ -1,0 +1,12 @@
+.center{
+    flex : 1 1 auto;
+    text-align: center;
+    font-style: italic;
+    font-size: 40px;
+}
+
+
+.mat-toolbar{
+    height: 15%;
+    background-color: lightskyblue;
+}

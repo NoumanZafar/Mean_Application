@@ -1,0 +1,30 @@
+table{
+    width:100%;
+}
+
+.mat-column-right {
+    text-align:center;
+}
+
+/*The following code in not mine its taken from here : https://groups.google.com/forum/#!topic/angular-material2/g7dKgOMVwbI 
+All it does it gives the column a specific width and wrap the long line.
+*/
+.mat-cell {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 100px !important;
+    width: 100px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    -ms-word-break: break-all;
+
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+  
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+     hyphens: auto;
+  }

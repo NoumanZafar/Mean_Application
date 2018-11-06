@@ -1,3 +1,5 @@
+#RUN THIS COMMAND BEFORE STARTING THE APP IN THE BROWSER: npm install --save @angular/material @angular/cdk @angular/animations
+
 # AngularMongoProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.

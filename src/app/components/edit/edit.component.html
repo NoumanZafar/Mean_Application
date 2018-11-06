@@ -1,0 +1,49 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Student</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Student ID" formControlName="studentId" #studentId>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Name" formControlName="name" #name>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Address" formControlName="address" #address></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Phone Number" formControlName="phone" #phone>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Email Address" formControlName="email" #email>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Course" formControlName="course" #course></textarea>
+      </mat-form-field>
+      
+        <mat-form-field class="field-full-width">
+          <mat-select placeholder="Full/Part Time" formControlName="studentType" #studentType>
+            <mat-option value="Full Time">Full Time</mat-option>
+            <mat-option value="Part Time">Part Time</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateStudent(studentId.value,name.value,address.value,phone.value,email.value,course.value,studentType.value)"
+        [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>
+    </form>
+  </mat-card>
+</div>

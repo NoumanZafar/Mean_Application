@@ -1,0 +1,62 @@
+<div>
+  <mat-card>
+      <br><br>
+      <button mat-raised-button color="primary" routerLink="/create">Create New Student</button>
+    <br><br><br>
+    <mat-divider></mat-divider>
+    <table mat-table [dataSource]="students">
+
+      <ng-container matColumnDef="studentId">
+        <th mat-header-cell *matHeaderCellDef class="mat-column-right">ID</th>
+        <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.studentId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Name</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.name}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Address</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.address}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Phone</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.phone}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Email</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.email}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="course">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Course</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.course}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentType">
+            <th mat-header-cell *matHeaderCellDef class="mat-column-right">Full/Part Time</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-right">{{element.studentType}}</td>
+          </ng-container>
+  
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right">Controls</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">
+            <button mat-icon-button color="primary" (click)="editStudent(element._id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button color="warn" (click)="deleteStudent(element._id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </mat-card>
+</div>

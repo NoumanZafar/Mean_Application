@@ -1,8 +1,8 @@
-<div>
+<div class="dd">
   <br>
   <mat-card>
     <section class="mat-typography">
-      <h3>Create a new Student</h3>
+      <h3 style="text-align:center">Create a new Student</h3>
     </section>
     <mat-divider></mat-divider>
     <br>
@@ -45,4 +45,5 @@
       <button type="submit" (click)="addStudent(studentId.value,name.value,address.value,phone.value,email.value,course.value,studentType.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
     </form>
   </mat-card>
+  <br><br>
 </div>

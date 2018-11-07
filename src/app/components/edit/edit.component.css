@@ -1,8 +1,21 @@
 .edit-form{
-    min-width: 150px;
-    width:100%;
+    min-width:155px;
+    width:50%;
+    margin: 0 auto;
+}
+
+.dd{
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url(images/background.jpg);
 }
 
 .field-full-width{
     width:100%;
+}
+
+.mat-card{
+    background-color: azure;
+    width: 50%;
+    margin:0 auto;
 }

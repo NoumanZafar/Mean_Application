@@ -1,16 +1,16 @@
-<div>
-  <mat-card>
-      <br><br>
-      <button mat-raised-button color="primary" routerLink="/create">Create New Student</button>
-
-      <mat-form-field >
+<div class="d">
+  <br><br>
+  <mat-card class="divColor">
+      
+      <mat-form-field>
         <input matInput class="warn" (keyup)="applyFilter($event.target.value)" placeholder="Search">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
-
-    <br><br><br>
+      <button mat-raised-button color="primary" routerLink="/create" style="float: right;">Create New Student</button>
+    <br>
     <mat-divider></mat-divider>
-    <table mat-table [dataSource]="dataSource">
+    <br>
+    <table mat-table [dataSource]="dataSource" class="table">
 
       <ng-container matColumnDef="studentId">
         <th mat-header-cell *matHeaderCellDef class="mat-column-right">ID</th>
@@ -64,6 +64,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></tr>
 
     </table>
-    <mat-paginator #paginatorModule [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+   <!-- <mat-paginator #paginatorModule [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons  (page)="onPaginateChange($event)"></mat-paginator> -->
   </mat-card>
 </div>

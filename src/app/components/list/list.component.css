@@ -6,6 +6,19 @@ table{
     text-align:center;
 }
 
+.divColor{
+    background-color:white;
+}
+
+.d{
+    background-color:black;
+}
+
+.table{
+    background-color:whitesmoke;
+}
+
+
 /*The following code in not mine its taken from here : https://groups.google.com/forum/#!topic/angular-material2/g7dKgOMVwbI 
 All it does it gives the column a specific width and wrap the long line.
 */

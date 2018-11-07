@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentService } from '../../student.service';
 import { Router } from '@angular/router';
 import { Student } from '../../student.model'
-import { MatTableDataSource, MatPaginatorModule } from '@angular/material';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 
 @Component({
@@ -16,9 +16,9 @@ export class ListComponent implements OnInit {
   //do stuff
   students: Student[];
   displayedColumns = ['studentId', 'name', 'address', 'phone', 'email', 'course', 'studentType', 'actions'];
-
+manualPage:number=0;
   dataSource: any;
-  @ViewChild(MatPaginatorModule) paginatorModule: MatPaginatorModule;
+  @ViewChild(MatPaginator) paginatorModule: MatPaginator;
 
   constructor(private studentService: StudentService,
     private router: Router) { }
@@ -46,7 +46,30 @@ export class ListComponent implements OnInit {
     }
   }
 
+  onPaginateChange(event){
+   // alert(JSON.stringify("Current page index: " + event.pageIndex));
+   console.log('Number Clicked')
+  }
+
   /*
+ updatePage(index: number) {
+    this.studentService.getStudents().subscribe((data: Student[]) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginatorModule = this.paginatorModule;
+      this.manualPage = index;
+      this.paginatorModule.pageIndex = index;
+      this.paginatorModule.page.next({
+        pageIndex: this.paginatorModule.pageIndex,
+        pageSize: this.paginatorModule.pageSize,
+        length: this.paginatorModule.length
+      });
+    });
+  }
+
+  clearManualPage() {
+    this.manualPage = 0;
+  }
+
   fetchStudents() {
     this.studentService
       .getStudents()
@@ -57,6 +80,8 @@ export class ListComponent implements OnInit {
       });
   }
 */
+
+
   editStudent(id) {
     this.router.navigate([`/edit/${id}`]);
   }

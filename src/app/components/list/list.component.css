@@ -12,13 +12,13 @@ All it does it gives the column a specific width and wrap the long line.
 .mat-cell {
     word-wrap: break-word !important;
     white-space: unset !important;
-    flex: 0 0 100px !important;
+    flex: 0 0 150px !important;
     width: 100px !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
   
     -ms-word-break: break-all;
-
+    word-break: break-all;
     /* Instead use this non-standard one: */
     word-break: break-word;
   
@@ -27,4 +27,5 @@ All it does it gives the column a specific width and wrap the long line.
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
      hyphens: auto;
+     padding: 8px 8px 8px 0;
   }

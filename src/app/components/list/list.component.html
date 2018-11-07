@@ -2,9 +2,15 @@
   <mat-card>
       <br><br>
       <button mat-raised-button color="primary" routerLink="/create">Create New Student</button>
+
+      <mat-form-field >
+        <input matInput class="warn" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
     <br><br><br>
     <mat-divider></mat-divider>
-    <table mat-table [dataSource]="students">
+    <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="studentId">
         <th mat-header-cell *matHeaderCellDef class="mat-column-right">ID</th>
@@ -55,8 +61,9 @@
 
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></tr>
 
     </table>
+    <mat-paginator #paginatorModule [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
   </mat-card>
 </div>

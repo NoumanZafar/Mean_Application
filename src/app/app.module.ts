@@ -8,10 +8,14 @@ import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
 //import here
 import { RouterModule, Routes } from '@angular/router';
-import { MatToolbarModule,MatFormFieldModule,MatInputModule,MatOptionModule,MatSelectModule,MatIconModule,MatButtonModule,MatCardModule,MatTableModule,MatDividerModule,MatSnackBarModule } from '@angular/material';
+import {
+  MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
+  MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule,
+  MatDividerModule, MatSnackBarModule, MatPaginatorModule
+} from '@angular/material';
 import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //create the routes
 const routes: Routes = [
@@ -35,7 +39,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatToolbarModule,
     HttpClientModule,
-    MatFormFieldModule,MatInputModule,
+    MatFormFieldModule, MatInputModule,
     MatOptionModule,
     MatSelectModule,
     MatIconModule,
@@ -44,7 +48,8 @@ const routes: Routes = [
     MatTableModule,
     MatDividerModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    MatPaginatorModule
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]

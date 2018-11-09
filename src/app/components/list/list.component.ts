@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   //do stuff
   students: Student[];
   displayedColumns = ['studentId', 'name', 'address', 'phone', 'email', 'course', 'studentType', 'actions'];
-manualPage:number=0;
+  manualPage:number=0;
   dataSource: any;
   @ViewChild(MatPaginator) paginatorModule: MatPaginator;
 

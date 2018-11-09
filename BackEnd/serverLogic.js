@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var Student = require('./models/Student.js');
+var User = require('./models/Login.js');
 var path = require('path');
 var bodyParser = require("body-parser");
 
@@ -23,6 +24,31 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+//login stuff
+router.route('/login').get((req, res) => {
+    User.find((err, users) => {
+        if (err)
+            console.log(err)
+        else
+            res.json(users);
+    });
+});
+
+
+router.route('/login/register').post((req, res) => {
+    var user = new User(req.body);
+    user.save()
+        .then(users => {
+            res.status(200).json({ 'student': 'Added successfully' });
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new student');
+        });
+});
+
+
+
 
 //do stuff here
 router.route('/students').get((req, res) => {

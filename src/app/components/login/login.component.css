@@ -1,0 +1,19 @@
+.create-form{
+   
+    width:75%;
+    margin: 0 auto;
+}
+
+.field-full-width{
+    width:100%;
+}
+
+.mat-card{
+    background-color: lightgreen;
+    width: 30%;
+    margin:0 auto;
+}
+
+.divv{
+    margin:0 auto;
+}

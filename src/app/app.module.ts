@@ -16,13 +16,17 @@ import {
 import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { CreatUsersComponent } from './components/creat-users/creat-users.component';
 
 //create the routes
 const routes: Routes = [
   { path: 'create', component: CreateComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'list', component: ListComponent },
-  { path: '', redirectTo: 'list', pathMatch: 'full' }
+  {path:'login/register',component:CreatUsersComponent},
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -30,7 +34,9 @@ const routes: Routes = [
     AppComponent,
     ListComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    LoginComponent,
+    CreatUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,7 @@ const routes: Routes = [
     MatTableModule,
     MatDividerModule,
     MatSnackBarModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     MatPaginatorModule
   ],
   providers: [StudentService],

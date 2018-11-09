@@ -41,8 +41,8 @@
   
       <mat-divider></mat-divider>
       <br><br>
-      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
-      <button type="submit" (click)="updateStudent(studentId.value,name.value,address.value,phone.value,email.value,course.value,studentType.value)"
+      <button style="margin-left: 100px" mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button style="margin-left: 40px" type="submit" (click)="updateStudent(studentId.value,name.value,address.value,phone.value,email.value,course.value,studentType.value)"
         [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>
     </form>
   </mat-card>

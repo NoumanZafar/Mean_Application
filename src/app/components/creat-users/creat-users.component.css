@@ -1,5 +1,4 @@
 .create-form{
-   
     width:75%;
     margin: 0 auto;
 }
@@ -9,11 +8,16 @@
 }
 
 .mat-card{
-    background-color: lightpink;
+    background-color: rgba(182, 253, 255, 0.2);
     width: 30%;
     margin:0 auto;
 }
 
-.divv{
-    margin:0 auto;
+.d{
+    max-width: 100%;
+    max-height: 100%; 
+    background-image: url(images/xx.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size: cover;
 }

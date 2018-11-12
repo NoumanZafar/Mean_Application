@@ -1,14 +1,10 @@
 .center{
-    flex : 1 1 auto;
-    text-align: center;
-    font-style: italic;
     font-size: 40px;
 }
 
 
 .mat-toolbar{
-    height: 15%;
-    background-color: rgba(127,255,212,0.2);
+    background-color: rgba(127,255,212,0.9);
 }
 
 .d{
@@ -18,4 +14,9 @@
     background-position:center;
     background-repeat:no-repeat;
     background-size: cover;
+}
+
+.button{
+    margin-left: 50px;
+    font-size: 15px;
 }

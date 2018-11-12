@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentService } from '../../student.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-create',
@@ -14,6 +15,7 @@ export class CreateComponent implements OnInit {
   createForm: FormGroup;
 
   constructor(private studentService: StudentService,
+    private snackBar:MatSnackBar,
     private fb: FormBuilder,
     private router: Router) {
     this.createForm = this.fb.group({
@@ -31,6 +33,9 @@ export class CreateComponent implements OnInit {
     this.studentService.addStudent(studentId, name, address, phone, email, course,studentType)
       .subscribe(() => {
         this.router.navigate(['/list']);
+        this.snackBar.open('Student with id '+studentId+' added','Ok',{
+          duration:3000
+        });
       });
   }
   ngOnInit() {

@@ -5,6 +5,7 @@ import { StudentService } from '../../student.service';
 import { Router } from '@angular/router';
 import { Student } from '../../student.model'
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class ListComponent implements OnInit {
   @ViewChild(MatPaginator) paginatorModule: MatPaginator;
 
   constructor(private studentService: StudentService,
+    private snackBar:MatSnackBar,
     private router: Router) { }
 
   ngOnInit() {
@@ -91,6 +93,9 @@ export class ListComponent implements OnInit {
       .deleteStudent(id)
       .subscribe(() => {
         this.getStudentData();
+        this.snackBar.open('Student deleted','Ok',{
+          duration:3000
+        });
       });
   }
 

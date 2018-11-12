@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../login.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-creat-users',
@@ -12,6 +13,7 @@ export class CreatUsersComponent implements OnInit {
   createForm: FormGroup;
   
   constructor(private userService: LoginService,
+    private snackBar:MatSnackBar,
     private fb: FormBuilder,
     private router: Router) {
     this.createForm = this.fb.group({
@@ -27,6 +29,9 @@ export class CreatUsersComponent implements OnInit {
     this.userService.addUsers(userId,password).subscribe(()=>{
       this.router.navigate(['/login']);
       console.log('In Add User function');
+      this.snackBar.open(userId+' Registered','Ok',{
+        duration:3000
+      });
     });
   }
 

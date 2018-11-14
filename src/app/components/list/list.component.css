@@ -7,15 +7,16 @@ table{
 }
 
 .divColor{
-    background-color:white;
-}
-
-.d{
-    background-color:black;
+    max-width: 100%;
+    max-height: 100%; 
+    background-image: url(images/wd.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size: cover;
 }
 
 .table{
-    background-color:whitesmoke;
+    background-color:rgba(29, 167, 185, 0.07);
 }
 
 

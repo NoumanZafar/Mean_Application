@@ -25,19 +25,26 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getUserss();
+    localStorage.clear();
   }
 
-  getUserss(user: String, password: String) {
+  getUserss(user: any, password: any) {
     this.userService.getUsers()
       .subscribe((data: User[]) => {
         this.users = data;
         for (var i = 0; i < this.users.length; i++) {
           if (this.users[i].userId == user && this.users[i].password == password) {
+            localStorage.setItem('username',user);
+            console.log(localStorage.getItem('admin'));
             this.router.navigate(['/list']);
             console.log('Data Requested...');
             console.log(this.users);
             this.snakBar.open(this.users[i].userId+' Loged in','OK',{
+              duration:4000
+            });
+            break;
+          }else if (!(this.users[i].userId == user && this.users[i].password == password)){
+            this.snakBar.open('User Id or Password not Correct','OK',{
               duration:4000
             });
           }

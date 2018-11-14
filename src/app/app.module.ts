@@ -18,12 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { CreatUsersComponent } from './components/creat-users/creat-users.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 //create the routes
 const routes: Routes = [
-  { path: 'create', component: CreateComponent },
-  { path: 'edit/:id', component: EditComponent },
-  { path: 'list', component: ListComponent },
+  { path: 'create', component: CreateComponent,canActivate:[AuthenticationGuard] },
+  { path: 'edit/:id', component: EditComponent,canActivate:[AuthenticationGuard] },
+  { path: 'list', component: ListComponent,canActivate:[AuthenticationGuard] },
   {path:'login/register',component:CreatUsersComponent},
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
@@ -57,7 +58,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatPaginatorModule
   ],
-  providers: [StudentService],
+  providers: [StudentService,AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

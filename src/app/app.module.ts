@@ -11,14 +11,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
   MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule,
-  MatDividerModule, MatSnackBarModule, MatPaginatorModule
+  MatDividerModule, MatSnackBarModule, MatPaginatorModule,MatSortModule
 } from '@angular/material';
 import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { CreatUsersComponent } from './components/creat-users/creat-users.component';
-import { AuthenticationGuard } from './authentication.guard';
+import { AuthenticationGuard } from './authentication.guard'; 
 
 //create the routes
 const routes: Routes = [
@@ -56,7 +56,8 @@ const routes: Routes = [
     MatDividerModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [StudentService,AuthenticationGuard],
   bootstrap: [AppComponent]

@@ -53,7 +53,7 @@ app.use(function (req, res, next) {
  * where search the database and return the json data back
  */
 router.route('/login').get((req, res) => {
-    User.findOne((err, users) => {
+    User.find((err, users) => {
         if (err)
             console.log(err)
         else
@@ -79,7 +79,7 @@ router.route('/login/register').post((req, res) => {
  * Get the student information baackas JSON data
  */
 router.route('/students').get((req, res) => {
-    Student.findOne((err, students) => {
+    Student.find((err, students) => {
         if (err)
             console.log(err)
         else

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+/**
+ * Import services
+ * Angular material
+ * Forms
+ * And Model
+ */
 import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
 import { User } from '../../user.model'
@@ -11,9 +18,24 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  /**
+   * Create an array of type Student to store the student data
+   * Craete a form of tyoe FormGroup
+   */
   users: User[];
   createForm: FormGroup;
 
+  /**
+   * Dependency Injections
+   * 
+   * @param userService LoginService
+   * @param snakBar Angular Material
+   * @param fb Form Builder
+   * @param router Routing 
+   * 
+   * Create the from inside the constructor and provide the fileds to input ID and Password to login 
+   * 
+   */
   constructor(private userService: LoginService,
     private snakBar:MatSnackBar,
     private fb: FormBuilder,
@@ -24,10 +46,25 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /** 
+   * Wheneve the login page in displayed delete the Local storage
+   * To delete the user login details and authenticate the application
+  */
   ngOnInit() {
     localStorage.clear();
   }
 
+  /**
+   * 
+   * @param user User ID
+   * @param password Password to login
+   * 
+   * Using the services find the user from database where given Id and Password matches
+   * and navigate the user to the next page and allown them to perform different tasks
+   * 
+   * If user is not found display the message using angular Snack bar that user does't exist 
+   * and block the user to navigate unless they enter the right details.
+   */
   getUserss(user: any, password: any) {
     this.userService.getUsers()
       .subscribe((data: User[]) => {

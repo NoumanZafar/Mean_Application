@@ -1,9 +1,11 @@
+/* Give form some values to display  */
 .edit-form{
     min-width:155px;
     width:50%;
     margin: 0 auto;
 }
 
+/* Dislplay the background image on the page */
 .dd{
     max-width: 100%;
     max-height: 100%;
@@ -17,6 +19,7 @@
     width:100%;
 }
 
+/* Create the background for the card material */
 .mat-card{
     background-color: rgba(240,255,255,0.2);
     width: 50%;

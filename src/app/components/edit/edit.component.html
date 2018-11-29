@@ -6,6 +6,10 @@
     </section>
     <mat-divider></mat-divider>
     <br>
+    <!--
+      Use the update form created in component
+      And new details 
+    -->
     <form [formGroup]="updateForm" class="edit-form">
 
       <mat-form-field class="field-full-width">
@@ -31,16 +35,20 @@
       <mat-form-field class="field-full-width">
         <textarea matInput placeholder="Course" formControlName="course" #course></textarea>
       </mat-form-field>
-      
-        <mat-form-field class="field-full-width">
-          <mat-select placeholder="Full/Part Time" formControlName="studentType" #studentType>
-            <mat-option value="Full Time">Full Time</mat-option>
-            <mat-option value="Part Time">Part Time</mat-option>
-          </mat-select>
-        </mat-form-field>
-  
+
+      <mat-form-field class="field-full-width">
+        <mat-select placeholder="Full/Part Time" formControlName="studentType" #studentType>
+          <mat-option value="Full Time">Full Time</mat-option>
+          <mat-option value="Part Time">Part Time</mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <mat-divider></mat-divider>
       <br><br>
+      <!--
+        Create the button to save the details 
+        and another button to go back to list page
+      -->
       <button style="margin-left: 100px" mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
       <button style="margin-left: 40px" type="submit" (click)="updateStudent(studentId.value,name.value,address.value,phone.value,email.value,course.value,studentType.value)"
         [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>

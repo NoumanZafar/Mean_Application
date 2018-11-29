@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-//import here
+/**
+ * Import the student services 
+ * Router
+ * Angular Material
+ */
 import { StudentService } from '../../student.service';
 import { Router } from '@angular/router';
 import { Student } from '../../student.model'
@@ -14,28 +18,48 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  //do stuff
+
+  /**
+   * Create an array of type Student
+   */
   students: Student[];
+
+  /**
+   * Prefix the names of the columns in the table
+   */
   displayedColumns = ['studentId', 'name', 'address', 'phone', 'email', 'course', 'studentType', 'actions'];
   manualPage: number = 0;
   dataSource: any;
 
+  /**
+   * Use Paginator and Sort from angular material
+   */
   private paginator: MatPaginator;
   private sort: MatSort;
 
+  /**
+   * Sort the table 
+   */
   @ViewChild(MatSort) set matSort(sortData: MatSort) {
     this.sort = sortData;
-    console.log(this.sort);
     this.getStudentData();
   }
 
+  /**
+   * Provide Pagination in the table
+   */
   @ViewChild(MatPaginator) set matPaginator(pageData: MatPaginator) {
     this.paginator = pageData;
-    console.log(this.paginator);
     this.getStudentData();
   }
 
-
+  /**
+   * Dependency Injection
+   * 
+   * @param studentService 
+   * @param snackBar 
+   * @param router 
+   */
   constructor(private studentService: StudentService,
     private snackBar: MatSnackBar,
     private router: Router) { }
@@ -43,6 +67,12 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Get all the student data back from the database using services
+   * Filter the data using MatTableDataSource which works as PIPE
+   * and help sorting the data and pagination
+   * 
+   */
   getStudentData() {
     this.studentService.getStudents().subscribe(
       (data: Student[]) => {
@@ -56,6 +86,11 @@ export class ListComponent implements OnInit {
     );
   }
 
+  /**
+   * 
+   * @param value Used to filter and display the data in table
+   * 
+   */
   applyFilter(value: String) {
     this.dataSource.filter = value.trim().toLowerCase();
     if (this.dataSource.paginator) {
@@ -63,11 +98,19 @@ export class ListComponent implements OnInit {
     }
   }
 
-
+  /**
+   * 
+   * @param id To edit the student the use the id and navigaet to the edit page
+   */
   editStudent(id) {
     this.router.navigate([`/edit/${id}`]);
   }
 
+  /**
+   * 
+   * @param id Delete the student based on the id and display the information
+   * 
+   */
   deleteStudent(id) {
     this.studentService
       .deleteStudent(id)

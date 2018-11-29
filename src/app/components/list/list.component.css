@@ -6,7 +6,7 @@ table{
     text-align:center;
 }
 
-
+/*   Add image in the background   */
 .divColor{
     max-width: 100%;
     max-height: 100%; 
@@ -16,12 +16,23 @@ table{
     background-size: cover;
 }
 
+/*  Add some transparency to the table  */
 .table{
     background-color:rgba(29, 167, 185, 0.07);
 }
 
+/* Display the column header in the midde=le and change the color and fint size */
+::ng-deep .mat-sort-header-container {
+    display:flex;
+    justify-content:center;
+    color: red;
+    font-size: 15px;
+  }
 
-/*The following code in not mine its taken from here : https://groups.google.com/forum/#!topic/angular-material2/g7dKgOMVwbI 
+
+/*The following code in not mine its taken from this address
+https://groups.google.com/forum/#!topic/angular-material2/g7dKgOMVwbI 
+
 All it does it gives the column a specific width and wrap the long line.
 */
 .mat-cell {
